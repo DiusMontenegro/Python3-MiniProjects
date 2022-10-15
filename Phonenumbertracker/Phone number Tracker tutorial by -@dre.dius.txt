@@ -1,0 +1,21 @@
+Welcome to Dre's Mini-projects!!! (Dius)
+
+Phone number tracker.
+
+But first, let's install the phonenumber module using >> "pip install phonenumbers" on your terminal
+
+next:
+
+import phonenumbers
+from phonenumbers import geocoder         #import geocoder
+
+a = input("Enter the Phone Number: ")     #specify the phonenumber
+phonenumber = phonenumbers.parse(a)
+
+print(geocoder.description_for_number(phonenumber, 'en')) #To display the location of the phone number
+
+run the code.. 
+
+Enter the phone number on the terminal and press (Enter)
+
+ENJOY!!! 
