@@ -1,0 +1,22 @@
+Welcome to my mini-project sample using Python3.. -Dre(dius)
+
+#Convert Pdf file to MS Word Document
+
+Enjoyyy!!!
+
+but first, install pdf2docx module using "pip install pdf2docx" in your terminal..
+
+next.
+write a simple code... XD
+
+from pdf2docx import parse
+
+pdf_file = 'demo.pdf'        #Name of the pdf file to be converted.
+docx_file = 'demo.docx'      #Name of the word document as an output of your pdf file.
+
+parse(pdf_file, docx_file)
+
+Run. and check the file location..
+
+Enjoy!!!
+
