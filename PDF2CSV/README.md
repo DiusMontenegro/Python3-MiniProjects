@@ -12,7 +12,7 @@ A Python script that converts PDF files to CSV format using the Tabula library.
 
 1. Clone this repository:
 
-- git clone https://github.com/DreaUltimate/MyMiniProjects/tree/main/PDF2CSV
+- git clone https://github.com/DreaUltimate/MyMiniProjects/tree/main/PDF2CSV.git
 
 2. Install the Tabula and Pandas libraries:
 
