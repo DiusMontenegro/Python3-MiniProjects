@@ -26,10 +26,10 @@ This Python script prompts the user to enter a phone number and a CAPTCHA code, 
 
 ## Example usage
 
-$ python phone_number_detection.py
-Enter the phone number: +1 650-253-0000
-Enter the CAPTCHA code: XYB2P9K
-The phone number is in en and is from United States
+- $ python phone_number_detection.py
+- Enter the phone number: +1 650-253-0000
+- Enter the CAPTCHA code: XYB2P9K
+- The phone number is in en and is from United States
 
 ## Acknowledgements
 
