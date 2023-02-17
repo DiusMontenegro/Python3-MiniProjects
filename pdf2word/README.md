@@ -10,7 +10,6 @@ This is a simple Python script that converts PDF files to DOCX using the `pdf2do
 
 You can install the libraries by running the following command:
 
-```sh
 pip install pdf2docx tqdm
 
 ## Usage
