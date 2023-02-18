@@ -1,0 +1,2 @@
+tkinter==8.6
+speech_recognition==3.8.1
