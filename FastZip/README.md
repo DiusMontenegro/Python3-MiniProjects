@@ -29,5 +29,5 @@ This will launch the GUI, where you can select a file to compress and choose the
 If you want to contribute to FastZip, you can submit a pull request on GitHub. Please make sure to follow the coding style and write tests for any new functionality you add.
 
 Thanks!,
-
-- Dius Montenegro (Dre)
+<br><br>
+Dius Montenegro (Dre)
