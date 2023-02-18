@@ -7,7 +7,6 @@ FastZip is a Python script that can quickly compress any file into a zip archive
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
