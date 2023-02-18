@@ -1,0 +1,5 @@
+- Added GUI to allow users to select files to compress and select output path
+
+- Added fast compression feature to quickly compress files
+
+- Added export feature to allow users to save the compressed file to any desired location
