@@ -1,4 +1,4 @@
-# Audio/Video Transcription Tool
+# Audio/Video Speech Transcription Tool
 
 A graphical user interface (GUI) tool that transcribes audio and video files using Google Web Speech API. The tool supports popular audio and video file formats, including .wav, .mp3, .ogg, .flac, .mp4, .mov, .avi, and .mkv. The transcribed text is saved to a file with proper punctuation and handling of [inaudible] tags.
 
@@ -37,5 +37,5 @@ To use the Audio/Video Transcription Tool, you'll need to install the required d
 
 Contributions to the Audio/Video Transcription Tool are welcome. To contribute, please fork the repository, create a new branch, make your changes, and submit a pull request.
 
-Thanks,
+Thanks, <br> <br>
 ~Dius Montenegro (Dre)
