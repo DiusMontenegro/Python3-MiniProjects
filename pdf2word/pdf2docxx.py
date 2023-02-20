@@ -6,6 +6,8 @@ import pandas as pd
 from pdf2docx import parse
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
+import tkinter as tk
+from tkinter import filedialog
 
 # Set up logging configuration
 logging.basicConfig(filename='pdf2docx.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
@@ -43,31 +45,46 @@ def predict_language(input_text, clf, vectorizer):
     language = clf.predict(X)[0]
     return language
 
+def select_file():
+    # Open file dialog to select PDF file
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
+    return file_path
+
+def select_folder():
+    # Open file dialog to select folder to save converted files
+    root = tk.Tk()
+    root.withdraw()
+    folder_path = filedialog.askdirectory()
+    return folder_path
+
 if __name__ == '__main__':
-    # List of PDF files to convert
-    pdf_files = ["sample1", "sample2", "sample3"]
+    # Use GUI to select PDF file and folder to save converted files
+    pdf_file = select_file()
+    output_folder = select_folder()
+    file_name = os.path.splitext(os.path.basename(pdf_file))[0]
+
+    # Convert selected PDF file to DOCX
+    convert_pdf_to_docx(file_name)
     
-    # Use multiprocessing to convert PDF files in parallel
-    with mp.Pool() as p:
-        p.map(convert_pdf_to_docx, pdf_files)
-    
-    # Load the converted DOCX files into memory
-    data = []
-    labels = []
-    for file in pdf_files:
-        input_file = file + ".docx"
-        if os.path.exists(input_file):
-            with open(input_file, 'r', encoding='utf-8') as f:
-                text = f.read()
-                data.append(text)
-                labels.append(file)
+    # Load the converted DOCX file into memory
+    input_file = os.path.join(output_folder, file_name + ".docx")
+    if os.path.exists(input_file):
+        with open(input_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+            data = [text]
+            labels = [file_name]
     
     # Train a language classifier on the converted text
     clf, vectorizer = train_classifier(data, labels)
     
-    # Prompt the user to enter some text to predict the language
-    input_text = input("Enter some text: ")
+    # Use GUI to prompt the user to enter some text to predict the language
+    root = tk.Tk()
+    root.withdraw()
+    input_text = tk.simpledialog.askstring("Input", "Enter some text:")
     
     # Use the trained classifier to predict the language of the input text
     language = predict_language(input_text, clf, vectorizer)
     print(f"The language of the input text is {language}")
+
