@@ -10,5 +10,8 @@ If you have any questions or comments about these projects, please feel free to 
 
 This my mini-projects that you may be interested in doing too... Enjoy!!
 
-~DreaUtimate (Dius)
-~L-Rae (Rea)
+
+## Contributors
+~DreaUtimate (Dius) <br><br>
+~L-Rae (Rea) <br><br>
+~Tristan-112 (Ej Tristan)
