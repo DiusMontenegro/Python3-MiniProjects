@@ -1,9 +1,21 @@
-import phonenumbers     # import phonenumbers library
-from phonenumbers import PhoneNumber, geocoder    # import necessary functions from phonenumbers library
-from langdetect import detect   # import detect function from langdetect library
-from captcha.image import ImageCaptcha  # import ImageCaptcha for generating captcha image
-import string   # import string library for generating random text
-import random   # import random library for generating random text
+import phonenumbers
+from phonenumbers import PhoneNumber, geocoder
+from langdetect import detect
+from captcha.image import ImageCaptcha
+import string
+import random
+from tkinter import filedialog
+from tkinter import *
+
+# Initialize the Tkinter GUI
+root = Tk()
+root.withdraw()
+
+# Prompt the user to select a file to input
+input_path = filedialog.askopenfilename(title="Select Input File", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
+
+# Prompt the user to select a download path for the output file
+download_path = filedialog.askdirectory(title="Select Download Path")
 
 # Generate a random string for the captcha image
 N = 7
@@ -12,11 +24,12 @@ captcha_text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=
 # Generate the captcha image and save it to a file
 image = ImageCaptcha(width=300, height=100)
 data = image.generate(captcha_text)
-image.write(captcha_text, 'CAPTCHA.png')
+captcha_file = f"{download_path}/CAPTCHA.png"
+image.write(captcha_text, captcha_file)
 
 # Display the captcha image to the user
-from PIL import Image
-Image.open('CAPTCHA.png').show()
+captcha_image = Image.open(captcha_file)
+captcha_image.show()
 
 # Prompt the user to enter a phone number and the captcha code
 input_number = input("Enter the phone number: ")
@@ -31,6 +44,10 @@ if captcha_code == captcha_text:
     country = geocoder.description_for_number(parsed_number, 'en')
     # Print the detected language and country of origin of the phone number
     print(f"The phone number is in {language} and is from {country}")
+    # Save the output to a file
+    output_file = f"{download_path}/output.txt"
+    with open(output_file, "w") as f:
+        f.write(f"The phone number is in {language} and is from {country}")
 else:
     # If the captcha is incorrect, print an error message
     print("Incorrect CAPTCHA code. Please try again.")
