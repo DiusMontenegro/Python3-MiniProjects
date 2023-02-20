@@ -10,4 +10,5 @@ If you have any questions or comments about these projects, please feel free to 
 
 This my mini-projects that you may be interested in doing too... Enjoy!!
 
-~Dre (Dius)
+~DreaUtimate (Dius)
+~L-Rae (Rea)
