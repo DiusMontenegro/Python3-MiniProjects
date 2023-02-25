@@ -1,8 +1,20 @@
 import cv2
 import numpy as np
+import tkinter as tk
+from tkinter import filedialog
+
+# Create a Tkinter window
+root = tk.Tk()
+root.withdraw()
+
+# Ask the user to select an input image
+file_path = filedialog.askopenfilename(title="Select input image", filetypes=(("PNG files", "*.png"), ("JPEG files", "*.jpg"), ("All files", "*.*")))
+
+# Ask the user to select an output directory
+output_path = filedialog.askdirectory(title="Select output directory")
 
 # Load the input image
-image = cv2.imread('input_image.png')
+image = cv2.imread(file_path)
 
 # Convert the image to grayscale
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -49,5 +61,5 @@ new_image = cv2.bitwise_and(new_image, new_image, mask=cv2.bitwise_not(mask))
 # Combine the original image with the new image
 result = cv2.add(result, new_image)
 
-# Save the result to a file
-cv2.imwrite('output_image.png', result)
+# Save the result to a file in the output directory
+cv2.imwrite(f'{output_path}/output_image.png', result)
